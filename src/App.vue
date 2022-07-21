@@ -1,9 +1,9 @@
 <template>
   <el-row>
-    <el-col v-if="$route.path !== '/login'" :span="6">
+    <el-col v-if="$route.path !== '/login'" :span="5">
       <side-menu></side-menu>
     </el-col>
-    <el-col :span="$route.path === '/login' ? 24 : 18">
+    <el-col :span="$route.path === '/login' ? 24 : 19">
       <router-view></router-view>
     </el-col>
   </el-row>

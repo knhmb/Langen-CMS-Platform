@@ -22,7 +22,11 @@
     <div class="body">
       <div class="body-menu">
         <div class="single-menu">
-          <div class="menu-item">
+          <div
+            @click="navigate('/dashboard')"
+            :class="{ 'is-active': $route.path === '/dashboard' }"
+            class="menu-item"
+          >
             <img src="../assets/dashboard@2x.png" alt="" />
             <p>Dashboard</p>
           </div>
@@ -38,7 +42,11 @@
             <img class="arrow" src="../assets/arrow@2x.png" alt="" />
           </div>
           <div v-if="accountMenu" class="sub-menu-list">
-            <div class="sub-menu">
+            <div
+              :class="{ 'is-active': $route.path === '/overview' }"
+              @click="navigate('/overview')"
+              class="sub-menu"
+            >
               <p>Overview</p>
             </div>
           </div>
@@ -48,10 +56,34 @@
           <img class="arrow" src="../assets/arrow@2x.png" alt="" /> -->
         </div>
         <div class="single-menu">
-          <div class="menu-item">
+          <div
+            :class="{ 'is-selected': cmsMenu }"
+            class="menu-item"
+            @click="cmsMenu = !cmsMenu"
+          >
             <img src="../assets/cms@2x.png" alt="" />
             <p>CMS</p>
             <img class="arrow" src="../assets/arrow@2x.png" alt="" />
+          </div>
+          <div v-if="cmsMenu" class="sub-menu-list">
+            <div class="sub-menu">
+              <p>Page</p>
+            </div>
+            <div class="sub-menu">
+              <p>Item main category</p>
+            </div>
+            <div class="sub-menu">
+              <p>Item sub category</p>
+            </div>
+            <div class="sub-menu">
+              <p>Theme category</p>
+            </div>
+            <div class="sub-menu">
+              <p>Banner slideshow</p>
+            </div>
+            <div class="sub-menu">
+              <p>Amenity</p>
+            </div>
           </div>
         </div>
         <div class="single-menu">
@@ -85,7 +117,13 @@ export default {
   data() {
     return {
       accountMenu: false,
+      cmsMenu: false,
     };
+  },
+  methods: {
+    navigate(path) {
+      this.$router.push(path);
+    },
   },
 };
 </script>
@@ -142,15 +180,17 @@ export default {
 }
 
 .side-menu .body .body-menu .single-menu .menu-item {
-  margin-bottom: 0;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.side-menu .body .body-menu .single-menu .menu-item.is-active {
+  background: linear-gradient(0deg, #f2f5f8, #f2f5f8), #ffffff;
+  border-radius: 8px;
 }
 
 .side-menu .body .body-menu .single-menu .menu-item.is-selected img.arrow {
   transform: rotate(180deg);
-}
-
-.side-menu .body .body-menu .single-menu {
-  margin-bottom: 1.5rem;
 }
 
 .side-menu .body .body-menu .single-menu .sub-menu {
@@ -160,7 +200,8 @@ export default {
   padding: 0.5rem 2rem;
 }
 
-.side-menu .body .body-menu .single-menu .sub-menu:hover {
+.side-menu .body .body-menu .single-menu .sub-menu:hover,
+.side-menu .body .body-menu .single-menu .sub-menu.is-active {
   background: linear-gradient(0deg, #f2f5f8, #f2f5f8), #ffffff;
   border-radius: 8px;
 }

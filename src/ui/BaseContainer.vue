@@ -6,6 +6,6 @@
 
 <style scoped>
 .container {
-  padding: 6.3rem 4rem;
+  padding: 6.3rem 2rem;
 }
 </style>
