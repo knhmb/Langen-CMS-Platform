@@ -1,8 +1,17 @@
 <template>
-  <div class="overview-table">
+  <div class="item-main-category-table">
     <el-table :data="tableData" stripe style="width: 100%">
-      <el-table-column prop="USERNAME" label="USERNAME" width="150" sortable />
-      <el-table-column prop="EMAIL" label="EMAIL" width="190" sortable />
+      <el-table-column
+        prop="MAIN CATEGORY NAME"
+        label="MAIN CATEGORY NAME"
+        width="220"
+        sortable
+      />
+      <el-table-column prop="BANNER" label="BANNER" width="190" sortable>
+        <template #default>
+          <img src="../../assets/image-20.png" alt="" />
+        </template>
+      </el-table-column>
       <el-table-column
         prop="CREATED BY"
         label="CREATED BY"
@@ -32,9 +41,7 @@
           <!-- <el-button size="small" @click="handleEdit(scope.$index, scope.row)"
             >Edit</el-button
           > -->
-          <base-edit-button @click="$router.push('/account-edit')"
-            >Edit</base-edit-button
-          >
+          <base-edit-button>Edit</base-edit-button>
           <base-delete-button @click="handleEdit(scope.$index, scope.row)"
             >Delete</base-delete-button
           >
@@ -47,7 +54,6 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination background layout="prev, pager, next" :total="1000" />
   </div>
 </template>
 
@@ -57,56 +63,56 @@ export default {
     return {
       tableData: [
         {
-          USERNAME: "chan tai man",
-          EMAIL: "chantaiman@gmail.com",
+          "MAIN CATEGORY NAME": "Main category name",
           "CREATED BY": "Chris Wong",
           "CREATED AT": "2022-03-02 12:15:41",
           "UPDATED BY": "Chris Wong",
           "UPDATED AT": "2022-03-02 12:15:41",
         },
         {
-          USERNAME: "chan tai man",
-          EMAIL: "chantaiman@gmail.com",
+          "MAIN CATEGORY NAME": "Main category name",
           "CREATED BY": "Chris Wong",
           "CREATED AT": "2022-03-02 12:15:41",
           "UPDATED BY": "Chris Wong",
           "UPDATED AT": "2022-03-02 12:15:41",
         },
         {
-          USERNAME: "chan tai man",
-          EMAIL: "chantaiman@gmail.com",
+          "MAIN CATEGORY NAME": "Main category name",
           "CREATED BY": "Chris Wong",
           "CREATED AT": "2022-03-02 12:15:41",
           "UPDATED BY": "Chris Wong",
           "UPDATED AT": "2022-03-02 12:15:41",
         },
         {
-          USERNAME: "chan tai man",
-          EMAIL: "chantaiman@gmail.com",
+          "MAIN CATEGORY NAME": "Main category name",
           "CREATED BY": "Chris Wong",
           "CREATED AT": "2022-03-02 12:15:41",
           "UPDATED BY": "Chris Wong",
           "UPDATED AT": "2022-03-02 12:15:41",
         },
         {
-          USERNAME: "chan tai man",
-          EMAIL: "chantaiman@gmail.com",
+          "MAIN CATEGORY NAME": "Main category name",
           "CREATED BY": "Chris Wong",
           "CREATED AT": "2022-03-02 12:15:41",
           "UPDATED BY": "Chris Wong",
           "UPDATED AT": "2022-03-02 12:15:41",
         },
         {
-          USERNAME: "chan tai man",
-          EMAIL: "chantaiman@gmail.com",
+          "MAIN CATEGORY NAME": "Main category name",
           "CREATED BY": "Chris Wong",
           "CREATED AT": "2022-03-02 12:15:41",
           "UPDATED BY": "Chris Wong",
           "UPDATED AT": "2022-03-02 12:15:41",
         },
         {
-          USERNAME: "chan tai man",
-          EMAIL: "chantaiman@gmail.com",
+          "MAIN CATEGORY NAME": "Main category name",
+          "CREATED BY": "Chris Wong",
+          "CREATED AT": "2022-03-02 12:15:41",
+          "UPDATED BY": "Chris Wong",
+          "UPDATED AT": "2022-03-02 12:15:41",
+        },
+        {
+          "MAIN CATEGORY NAME": "Main category name",
           "CREATED BY": "Chris Wong",
           "CREATED AT": "2022-03-02 12:15:41",
           "UPDATED BY": "Chris Wong",
@@ -119,21 +125,21 @@ export default {
 </script>
 
 <style scoped>
-.overview-table {
+.item-main-category-table {
   margin-top: 1.5rem;
 }
 
-.overview-table .el-table :deep(.el-table__cell.is-leaf) {
+.item-main-category-table .el-table :deep(.el-table__cell.is-leaf) {
   background: #f2f5f8;
 }
 
-.overview-table .el-table :deep(.el-table__cell.is-leaf .cell) {
+.item-main-category-table .el-table :deep(.el-table__cell.is-leaf .cell) {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.overview-table .el-table :deep(.el-table__cell .cell) {
+.item-main-category-table .el-table :deep(.el-table__cell .cell) {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
@@ -143,27 +149,7 @@ export default {
   color: #333;
 }
 
-.overview-table .el-pagination {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.overview-table .el-pagination :deep(.btn-prev),
-.overview-table .el-pagination :deep(.number),
-.overview-table .el-pagination :deep(.btn-next),
-.overview-table .el-pagination :deep(.btn-quicknext) {
-  border-radius: 100%;
-}
-
-.overview-table
-  :deep(.el-pagination.is-background .el-pager li:not(.is-disabled).is-active) {
-  background: #005085;
-  font-family: "Noto Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 140%;
-  color: #ffffff;
+.item-main-category-table img {
+  width: 100%;
 }
 </style>

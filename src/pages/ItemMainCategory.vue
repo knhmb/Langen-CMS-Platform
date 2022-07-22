@@ -1,16 +1,17 @@
 <template>
-  <section class="overview">
+  <section class="item-main-category">
     <base-container>
       <el-row>
         <el-col :span="12">
           <el-breadcrumb separator="/">
-            <el-breadcrumb-item>Account</el-breadcrumb-item>
-            <el-breadcrumb-item>Overview</el-breadcrumb-item>
+            <el-breadcrumb-item>CMS</el-breadcrumb-item>
+            <el-breadcrumb-item>Item main category</el-breadcrumb-item>
           </el-breadcrumb>
-          <h2>Overview</h2>
+          <h2>Item main category</h2>
         </el-col>
         <el-col :span="12">
-          <base-create-button @click="$router.push('/account-create')"
+          <base-create-button
+            @click="$router.push('/item-main-category-create')"
             >Create</base-create-button
           >
           <el-input
@@ -28,7 +29,7 @@
 
 <script>
 import { Search } from "@element-plus/icons-vue";
-import Table from "../components/overview/Table.vue";
+import Table from "../components/item-main-category/Table.vue";
 
 export default {
   components: {
@@ -44,11 +45,11 @@ export default {
 </script>
 
 <style scoped>
-.overview .el-breadcrumb {
+.item-main-category .el-breadcrumb {
   font-size: 20px;
 }
 
-.overview .el-breadcrumb :deep(.el-breadcrumb__inner) {
+.item-main-category .el-breadcrumb :deep(.el-breadcrumb__inner) {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
@@ -58,7 +59,7 @@ export default {
   color: #8898a9;
 }
 
-.overview h2 {
+.item-main-category h2 {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
@@ -69,17 +70,17 @@ export default {
   color: #005085;
 }
 
-.overview .el-col:nth-of-type(2) {
+.item-main-category .el-col:nth-of-type(2) {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.overview .el-input {
+.item-main-category .el-input {
   margin-left: 1rem;
 }
 
-.overview .el-input :deep(.el-input__wrapper) {
+.item-main-category .el-input :deep(.el-input__wrapper) {
   background: #ffffff;
   border-radius: 4px;
   padding: 0.5rem 1rem;

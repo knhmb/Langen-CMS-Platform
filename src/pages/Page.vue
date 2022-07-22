@@ -1,16 +1,16 @@
 <template>
-  <section class="overview">
+  <section class="page">
     <base-container>
       <el-row>
         <el-col :span="12">
           <el-breadcrumb separator="/">
-            <el-breadcrumb-item>Account</el-breadcrumb-item>
-            <el-breadcrumb-item>Overview</el-breadcrumb-item>
+            <el-breadcrumb-item>CMS</el-breadcrumb-item>
+            <el-breadcrumb-item>Page</el-breadcrumb-item>
           </el-breadcrumb>
-          <h2>Overview</h2>
+          <h2>Page</h2>
         </el-col>
         <el-col :span="12">
-          <base-create-button @click="$router.push('/account-create')"
+          <base-create-button @click="$router.push('/page-create')"
             >Create</base-create-button
           >
           <el-input
@@ -28,7 +28,7 @@
 
 <script>
 import { Search } from "@element-plus/icons-vue";
-import Table from "../components/overview/Table.vue";
+import Table from "../components/page/Table.vue";
 
 export default {
   components: {
@@ -44,11 +44,11 @@ export default {
 </script>
 
 <style scoped>
-.overview .el-breadcrumb {
+.page .el-breadcrumb {
   font-size: 20px;
 }
 
-.overview .el-breadcrumb :deep(.el-breadcrumb__inner) {
+.page .el-breadcrumb :deep(.el-breadcrumb__inner) {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
@@ -58,7 +58,7 @@ export default {
   color: #8898a9;
 }
 
-.overview h2 {
+.page h2 {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
@@ -69,17 +69,17 @@ export default {
   color: #005085;
 }
 
-.overview .el-col:nth-of-type(2) {
+.page .el-col:nth-of-type(2) {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-.overview .el-input {
+.page .el-input {
   margin-left: 1rem;
 }
 
-.overview .el-input :deep(.el-input__wrapper) {
+.page .el-input :deep(.el-input__wrapper) {
   background: #ffffff;
   border-radius: 4px;
   padding: 0.5rem 1rem;

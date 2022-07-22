@@ -66,10 +66,18 @@
             <img class="arrow" src="../assets/arrow@2x.png" alt="" />
           </div>
           <div v-if="cmsMenu" class="sub-menu-list">
-            <div class="sub-menu">
+            <div
+              :class="{ 'is-active': $route.path === '/page' }"
+              @click="navigate('/page')"
+              class="sub-menu"
+            >
               <p>Page</p>
             </div>
-            <div class="sub-menu">
+            <div
+              :class="{ 'is-active': $route.path === '/item-main-category' }"
+              @click="navigate('/item-main-category')"
+              class="sub-menu"
+            >
               <p>Item main category</p>
             </div>
             <div class="sub-menu">

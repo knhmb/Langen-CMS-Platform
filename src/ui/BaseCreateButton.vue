@@ -1,7 +1,9 @@
 <template>
   <div class="create-button">
     <!-- <el-button :icon="Plus"><slot></slot></el-button> -->
-    <el-button :icon="Plus"><slot></slot></el-button>
+    <el-button :class="{ 'is-hidden': hideIcon }" :icon="Plus"
+      ><slot></slot
+    ></el-button>
   </div>
 </template>
 
@@ -9,6 +11,7 @@
 import { Plus } from "@element-plus/icons-vue";
 
 export default {
+  props: ["hideIcon"],
   data() {
     return {
       Plus,
@@ -37,5 +40,9 @@ export default {
 
 .create-button .el-button :deep(.el-icon) {
   color: #fff;
+}
+
+.create-button .el-button.is-hidden :deep(.el-icon) {
+  display: none;
 }
 </style>
