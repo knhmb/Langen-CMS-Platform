@@ -1,31 +1,31 @@
 <template>
-  <div class="edit-button">
-    <el-button :icon="Edit"><slot></slot></el-button>
+  <div class="delete-button">
+    <el-button :icon="Delete"><slot></slot></el-button>
   </div>
 </template>
 
 <script>
-import { Edit } from "@element-plus/icons-vue";
+import { Delete } from "@element-plus/icons-vue";
 
 export default {
   data() {
     return {
-      Edit,
+      Delete,
     };
   },
 };
 </script>
 
 <style scoped>
-.edit-button {
+.delete-button {
   display: inline;
   margin-right: 0.5rem;
 }
 
-.edit-button .el-button {
-  background: #39739a;
+.delete-button .el-button {
+  background: #ee5858;
   border-radius: 4px;
-  border-color: #39739a;
+  border-color: #ee5858;
 
   font-family: "Noto Sans";
   font-style: normal;
@@ -36,7 +36,7 @@ export default {
   color: #ffffff;
 }
 
-.edit-button .el-button :deep(.el-icon) {
+.delete-button .el-button :deep(.el-icon) {
   color: white;
 }
 </style>

@@ -25,7 +25,7 @@ export default {
 .create-button .el-button {
   background: #005085;
   border-radius: 4px;
-
+  border-color: #005085;
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 600;
