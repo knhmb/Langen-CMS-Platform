@@ -80,16 +80,32 @@
             >
               <p>Item main category</p>
             </div>
-            <div class="sub-menu">
+            <div
+              :class="{ 'is-active': $route.path === '/item-sub-category' }"
+              @click="navigate('/item-sub-category')"
+              class="sub-menu"
+            >
               <p>Item sub category</p>
             </div>
-            <div class="sub-menu">
+            <div
+              :class="{ 'is-active': $route.path === '/theme-category' }"
+              @click="navigate('/theme-category')"
+              class="sub-menu"
+            >
               <p>Theme category</p>
             </div>
-            <div class="sub-menu">
+            <div
+              :class="{ 'is-active': $route.path === '/banner-slideshow' }"
+              @click="navigate('/banner-slideshow')"
+              class="sub-menu"
+            >
               <p>Banner slideshow</p>
             </div>
-            <div class="sub-menu">
+            <div
+              :class="{ 'is-active': $route.path === '/amenity' }"
+              @click="navigate('/amenity')"
+              class="sub-menu"
+            >
               <p>Amenity</p>
             </div>
           </div>
