@@ -9,9 +9,14 @@
           <img src="../assets/profile@2x.png" alt="" />
           <p>Profile</p>
         </div>
-        <div class="single-menu">
+        <div
+          @click="navigate('/notification')"
+          :class="{ 'is-active': $route.path === '/notification' }"
+          class="single-menu"
+        >
           <img src="../assets/notification@2x.png" alt="" />
           <p>Notification</p>
+          <span>24</span>
         </div>
         <div class="single-menu">
           <img src="../assets/sign-out@2x.png" alt="" />
@@ -118,10 +123,37 @@
           </div>
         </div>
         <div class="single-menu">
-          <div class="menu-item">
+          <div
+            @click="systemMenu = !systemMenu"
+            :class="{ 'is-selected': systemMenu }"
+            class="menu-item"
+          >
             <img src="../assets/system@2x.png" alt="" />
             <p>System</p>
             <img class="arrow" src="../assets/arrow@2x.png" alt="" />
+          </div>
+          <div v-if="systemMenu" class="sub-menu-list">
+            <div
+              :class="{ 'is-active': $route.path === '/privilege' }"
+              @click="navigate('/privilege')"
+              class="sub-menu"
+            >
+              <p>Privilege</p>
+            </div>
+            <div
+              :class="{ 'is-active': $route.path === '/language' }"
+              @click="navigate('/language')"
+              class="sub-menu"
+            >
+              <p>Language</p>
+            </div>
+            <div
+              :class="{ 'is-active': $route.path === '/setting' }"
+              @click="navigate('/setting')"
+              class="sub-menu"
+            >
+              <p>Setting</p>
+            </div>
           </div>
         </div>
         <div class="single-menu">
@@ -142,6 +174,7 @@ export default {
     return {
       accountMenu: false,
       cmsMenu: false,
+      systemMenu: false,
     };
   },
   methods: {
@@ -195,12 +228,35 @@ export default {
   margin-bottom: 1.5rem;
 }
 
+/* .side-menu .header .header-menu .single-menu {
+  padding: 0.5rem 0.5rem;
+} */
+
+.side-menu .header .header-menu .single-menu:hover,
+.side-menu .header .header-menu .single-menu.is-active {
+  background: linear-gradient(0deg, #f2f5f8, #f2f5f8), #ffffff;
+  border-radius: 8px;
+}
+
+.side-menu .header .header-menu .single-menu span {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: "liga" off;
+  color: #ee5858;
+  text-align: end;
+  width: 100%;
+}
+
 .side-menu .header .header-menu .single-menu,
 .side-menu .body .body-menu .single-menu .menu-item {
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 .side-menu .body .body-menu .single-menu .menu-item {

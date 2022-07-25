@@ -17,6 +17,13 @@ import BannerSlideshow from "./pages/BannerSlideshow";
 import BannerSlideshowCreate from "./pages/BannerSlideshowCreate";
 import Amenity from "./pages/Amenity";
 import AmenityCreate from "./pages/AmenityCreate";
+import Privilege from "./pages/Privilege";
+import PrivilegeCreate from "./pages/PrivilegeCreate";
+import Language from "./pages/Language";
+import LanguageCreate from "./pages/LanguageCreate";
+import Setting from "./pages/Setting";
+import SettingCreate from "./pages/SettingCreate";
+import Notification from "./pages/Notification";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -43,6 +50,13 @@ const router = createRouter({
     { path: "/banner-slideshow-create", component: BannerSlideshowCreate },
     { path: "/amenity", component: Amenity },
     { path: "/amenity-create", component: AmenityCreate },
+    { path: "/privilege", component: Privilege },
+    { path: "/privilege-create", component: PrivilegeCreate },
+    { path: "/language", component: Language },
+    { path: "/language-create", component: LanguageCreate },
+    { path: "/setting", component: Setting },
+    { path: "/setting-create", component: SettingCreate },
+    { path: "/notification", component: Notification },
   ],
 });
 
