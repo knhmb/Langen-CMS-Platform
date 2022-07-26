@@ -93,7 +93,107 @@
             </el-col>
           </el-row>
         </div>
-        <base-create-button :hide-icon="true">Create</base-create-button>
+        <div class="card">
+          <el-row :gutter="13">
+            <el-col :span="7">
+              <p class="title">Guest Information</p>
+            </el-col>
+            <el-col :span="17">
+              <el-row :gutter="20">
+                <el-col :span="8">
+                  <el-form-item label="Title">
+                    <el-input v-model="ruleForm.title"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="8">
+                  <el-form-item label="Chinese name">
+                    <el-input v-model="ruleForm.chineseName"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="8">
+                  <el-form-item label="English name">
+                    <el-input v-model="ruleForm.englishName"></el-input>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row :gutter="20">
+                <el-col :span="12">
+                  <el-form-item label="Email">
+                    <el-input v-model="ruleForm.email"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="12">
+                  <el-form-item label="Phone number">
+                    <el-input v-model="ruleForm.phoneNumber"></el-input>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+            </el-col>
+          </el-row>
+        </div>
+        <div class="card">
+          <el-row :gutter="13">
+            <el-col :span="7">
+              <p class="title">Pricing Information</p>
+            </el-col>
+            <el-col :span="17">
+              <el-row :gutter="20">
+                <el-col :span="8">
+                  <el-form-item label="Room price">
+                    <el-input v-model="ruleForm.roomPrice"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="8">
+                  <el-form-item label="Deposit">
+                    <el-input v-model="ruleForm.deposit"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="8">
+                  <el-form-item label="Additional charge">
+                    <el-input v-model="ruleForm.additionalCharge"></el-input>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row class="row-border" :gutter="20">
+                <el-col :span="12">
+                  <el-form-item label="Discount">
+                    <el-input v-model="ruleForm.discount"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="12">
+                  <el-form-item label="Total price">
+                    <el-input v-model="ruleForm.totalPrice"></el-input>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+              <el-row :gutter="20">
+                <el-col :span="12">
+                  <el-form-item label="Price pay now">
+                    <el-input v-model="ruleForm.pricePayNow"></el-input>
+                  </el-form-item>
+                </el-col>
+                <el-col :span="12">
+                  <el-form-item label="Price pay check in">
+                    <el-input v-model="ruleForm.pricePayCheckIn"></el-input>
+                  </el-form-item>
+                </el-col>
+              </el-row>
+            </el-col>
+          </el-row>
+        </div>
+        <div class="card">
+          <el-row :gutter="13">
+            <el-col :span="7">
+              <p class="title">Update order Status</p>
+            </el-col>
+            <el-col :span="17">
+              <el-form-item label="Order status">
+                <el-select class="bg-white"></el-select>
+              </el-form-item>
+            </el-col>
+          </el-row>
+        </div>
+        <base-create-button :hide-icon="true">Update</base-create-button>
       </el-form>
     </base-container>
   </section>
@@ -116,6 +216,18 @@ export default {
         petQuantity: "0",
         specialRequest:
           "Special requests content lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien in diam lobortis et, amet tristique. Sed proin adipiscing vitae vitae amet, dictum elementum id posuere. Ultrices ullamcorper dui commodo quam diam lectus. Fames ut sit orci, morbi suspendisse varius.",
+        title: "Mr.",
+        chineseName: "陳大文",
+        englishName: "Chan Tai Man",
+        email: "chantaiman@gmail.com",
+        phoneNumber: "6123 4567",
+        roomPrice: "HKD 1000.00",
+        deposit: "HKD 200.00",
+        additionalCharge: "HKD 200.00",
+        discount: "HKD 100.00",
+        totalPrice: "HKD 1200.00",
+        pricePayNow: "HKD 1200.00",
+        pricePayCheckIn: "HKD 0.00",
       },
     };
   },
@@ -187,6 +299,17 @@ export default {
   background: #f5f7fa;
 }
 
+.reservation-create .el-form :deep(.el-input .el-input__inner) {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: "liga" off;
+  color: #333333;
+  opacity: 0.7;
+}
+
 .reservation-create
   .el-form
   :deep(.el-input.el-input--prefix.el-input--suffix.el-date-editor.el-date-editor--date.el-tooltip__trigger.el-tooltip__trigger) {
@@ -201,6 +324,20 @@ export default {
   border-radius: 4px;
   padding: 1.14rem 0.7rem;
   background: #f5f7fa;
+}
+
+.reservation-create
+  .el-form
+  :deep(.el-input.el-input--prefix.el-input--suffix.el-date-editor.el-date-editor--date.el-tooltip__trigger.el-tooltip__trigger
+    .el-input__inner) {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: "liga" off;
+  color: #333333;
+  opacity: 0.7;
 }
 
 .reservation-create .el-form .el-select {
@@ -221,5 +358,28 @@ export default {
 
 .reservation-create :deep(.el-textarea .el-textarea__inner) {
   background: #f5f7fa;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: "liga" off;
+  color: #333333;
+  opacity: 0.7;
+}
+
+.reservation-create .el-form :deep(.el-select.bg-white .el-input__wrapper) {
+  background: #fff;
+}
+
+.reservation-create .el-form :deep(.el-select.bg-white .el-input__inner) {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: "liga" off;
+  color: #333333;
+  opacity: 0.7;
 }
 </style>
