@@ -30,6 +30,7 @@ import Coupon from "./pages/Coupon";
 import CouponCreate from "./pages/CouponCreate";
 import Comment from "./pages/Comment";
 import Reservation from "./pages/Reservation";
+import ReservationDetail from "./pages/ReservationDetail";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -69,6 +70,7 @@ const router = createRouter({
     { path: "/coupon-create", component: CouponCreate },
     { path: "/comment", component: Comment },
     { path: "/reservation", component: Reservation },
+    { path: "/reservation-detail", component: ReservationDetail },
   ],
 });
 
