@@ -28,6 +28,8 @@ import Item from "./pages/Item";
 import ItemCreate from "./pages/ItemCreate";
 import Coupon from "./pages/Coupon";
 import CouponCreate from "./pages/CouponCreate";
+import Comment from "./pages/Comment";
+import Reservation from "./pages/Reservation";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -65,6 +67,8 @@ const router = createRouter({
     { path: "/item-create", component: ItemCreate },
     { path: "/coupon", component: Coupon },
     { path: "/coupon-create", component: CouponCreate },
+    { path: "/comment", component: Comment },
+    { path: "/reservation", component: Reservation },
   ],
 });
 

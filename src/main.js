@@ -10,6 +10,7 @@ import BaseContainer from "./ui/BaseContainer.vue";
 import BaseCreateButton from "./ui/BaseCreateButton.vue";
 import BaseEditButton from "./ui/BaseEditButton.vue";
 import BaseDeleteButton from "./ui/BaseDeleteButton.vue";
+import BaseViewButton from "./ui/BaseViewButton.vue";
 
 const app = createApp(App);
 
@@ -20,5 +21,6 @@ app.component("base-container", BaseContainer);
 app.component("base-create-button", BaseCreateButton);
 app.component("base-edit-button", BaseEditButton);
 app.component("base-delete-button", BaseDeleteButton);
+app.component("base-view-button", BaseViewButton);
 
 app.mount("#app");
