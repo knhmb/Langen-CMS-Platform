@@ -116,10 +116,44 @@
           </div>
         </div>
         <div class="single-menu">
-          <div class="menu-item">
+          <div
+            @click="hotelMenu = !hotelMenu"
+            :class="{ 'is-selected': hotelMenu }"
+            class="menu-item"
+          >
             <img src="../assets/hotel@2x.png" alt="" />
             <p>Hotel</p>
             <img class="arrow" src="../assets/arrow@2x.png" alt="" />
+          </div>
+          <div v-if="hotelMenu" class="sub-menu-list">
+            <div
+              :class="{ 'is-active': $route.path === '/item' }"
+              @click="navigate('/item')"
+              class="sub-menu"
+            >
+              <p>Item</p>
+            </div>
+            <div
+              :class="{ 'is-active': $route.path === '/coupon' }"
+              @click="navigate('/coupon')"
+              class="sub-menu"
+            >
+              <p>Coupon</p>
+            </div>
+            <div
+              :class="{ 'is-active': $route.path === '/comment' }"
+              @click="navigate('/comment')"
+              class="sub-menu"
+            >
+              <p>Comment</p>
+            </div>
+            <div
+              :class="{ 'is-active': $route.path === '/reservation' }"
+              @click="navigate('/reservation')"
+              class="sub-menu"
+            >
+              <p>Reservation</p>
+            </div>
           </div>
         </div>
         <div class="single-menu">
@@ -175,6 +209,7 @@ export default {
       accountMenu: false,
       cmsMenu: false,
       systemMenu: false,
+      hotelMenu: false,
     };
   },
   methods: {

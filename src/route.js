@@ -24,6 +24,8 @@ import LanguageCreate from "./pages/LanguageCreate";
 import Setting from "./pages/Setting";
 import SettingCreate from "./pages/SettingCreate";
 import Notification from "./pages/Notification";
+import Item from "./pages/Item";
+import ItemCreate from "./pages/ItemCreate";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -57,6 +59,8 @@ const router = createRouter({
     { path: "/setting", component: Setting },
     { path: "/setting-create", component: SettingCreate },
     { path: "/notification", component: Notification },
+    { path: "/item", component: Item },
+    { path: "/item-create", component: ItemCreate },
   ],
 });
 
