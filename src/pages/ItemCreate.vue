@@ -330,14 +330,19 @@
                 </div>
                 <div class="footer">
                   <el-form-item label="Status">
+                    <p class="label">
+                      Last update by : Chris wong<span></span>Last update at :
+                      2022-03-02 12:15:41
+                    </p>
                     <el-select v-model="ruleForm.status"></el-select>
                   </el-form-item>
                 </div>
               </div>
+              <el-button class="add" :icon="Plus">Add time slot</el-button>
             </el-col>
           </el-row>
         </div>
-        <base-create-button :hide-icon="true">Create</base-create-button>
+        <base-create-button :hide-icon="true">Update</base-create-button>
       </el-form>
     </base-container>
   </section>
@@ -355,6 +360,7 @@ export default {
   },
   data() {
     return {
+      Plus,
       imageUrl: "",
       ruleForm: {
         name: "",
@@ -584,5 +590,49 @@ export default {
 
 .item-create .inner-card .footer {
   padding: 1rem;
+}
+
+.item-create .inner-card .footer p.label {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: "liga" off;
+  color: #333333;
+  opacity: 0.5;
+  position: absolute;
+  top: -1.5rem;
+  right: 0;
+  z-index: 1;
+}
+
+.item-create .inner-card .footer p.label span {
+  border-left: 1px solid #333333;
+  height: 0.8rem;
+  margin: 0 0.2rem;
+  opacity: 0.5;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.item-create .el-button.add {
+  border: 1px solid #005085;
+  filter: drop-shadow(0px 4px 16px rgba(81, 97, 122, 0.08));
+  border-radius: 4px;
+  width: 100%;
+  padding: 1.2rem;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  font-feature-settings: "liga" off;
+  color: #005085;
+  margin-top: 1rem;
+}
+
+.item-create .el-button.add :deep(.el-icon) {
+  color: #005085;
 }
 </style>

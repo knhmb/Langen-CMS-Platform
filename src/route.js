@@ -26,6 +26,8 @@ import SettingCreate from "./pages/SettingCreate";
 import Notification from "./pages/Notification";
 import Item from "./pages/Item";
 import ItemCreate from "./pages/ItemCreate";
+import Coupon from "./pages/Coupon";
+import CouponCreate from "./pages/CouponCreate";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -61,6 +63,8 @@ const router = createRouter({
     { path: "/notification", component: Notification },
     { path: "/item", component: Item },
     { path: "/item-create", component: ItemCreate },
+    { path: "/coupon", component: Coupon },
+    { path: "/coupon-create", component: CouponCreate },
   ],
 });
 
