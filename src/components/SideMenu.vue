@@ -48,7 +48,12 @@
           </div>
           <div v-if="accountMenu" class="sub-menu-list">
             <div
-              :class="{ 'is-active': $route.path === '/overview' }"
+              :class="{
+                'is-active':
+                  $route.path === '/overview' ||
+                  $route.path === '/account-create' ||
+                  $route.path === '/account-edit',
+              }"
               @click="navigate('/overview')"
               class="sub-menu"
             >
@@ -72,42 +77,65 @@
           </div>
           <div v-if="cmsMenu" class="sub-menu-list">
             <div
-              :class="{ 'is-active': $route.path === '/page' }"
+              :class="{
+                'is-active':
+                  $route.path === '/page' || $route.path === '/page-create',
+              }"
               @click="navigate('/page')"
               class="sub-menu"
             >
               <p>Page</p>
             </div>
             <div
-              :class="{ 'is-active': $route.path === '/item-main-category' }"
+              :class="{
+                'is-active':
+                  $route.path === '/item-main-category' ||
+                  $route.path === '/item-main-category-create',
+              }"
               @click="navigate('/item-main-category')"
               class="sub-menu"
             >
               <p>Item main category</p>
             </div>
             <div
-              :class="{ 'is-active': $route.path === '/item-sub-category' }"
+              :class="{
+                'is-active':
+                  $route.path === '/item-sub-category' ||
+                  $route.path === '/item-sub-category-create',
+              }"
               @click="navigate('/item-sub-category')"
               class="sub-menu"
             >
               <p>Item sub category</p>
             </div>
             <div
-              :class="{ 'is-active': $route.path === '/theme-category' }"
+              :class="{
+                'is-active':
+                  $route.path === '/theme-category' ||
+                  $route.path === '/theme-category-create',
+              }"
               @click="navigate('/theme-category')"
               class="sub-menu"
             >
               <p>Theme category</p>
             </div>
             <div
-              :class="{ 'is-active': $route.path === '/banner-slideshow' }"
+              :class="{
+                'is-active':
+                  $route.path === '/banner-slideshow' ||
+                  $route.path === '/banner-slideshow-create',
+              }"
               @click="navigate('/banner-slideshow')"
               class="sub-menu"
             >
               <p>Banner slideshow</p>
             </div>
             <div
-              :class="{ 'is-active': $route.path === '/amenity' }"
+              :class="{
+                'is-active':
+                  $route.path === '/amenity' ||
+                  $route.path === '/amenity-create',
+              }"
               @click="navigate('/amenity')"
               class="sub-menu"
             >
@@ -127,14 +155,20 @@
           </div>
           <div v-if="hotelMenu" class="sub-menu-list">
             <div
-              :class="{ 'is-active': $route.path === '/item' }"
+              :class="{
+                'is-active':
+                  $route.path === '/item' || $route.path === '/item-create',
+              }"
               @click="navigate('/item')"
               class="sub-menu"
             >
               <p>Item</p>
             </div>
             <div
-              :class="{ 'is-active': $route.path === '/coupon' }"
+              :class="{
+                'is-active':
+                  $route.path === '/coupon' || $route.path === '/coupon-create',
+              }"
               @click="navigate('/coupon')"
               class="sub-menu"
             >
@@ -148,7 +182,11 @@
               <p>Comment</p>
             </div>
             <div
-              :class="{ 'is-active': $route.path === '/reservation' }"
+              :class="{
+                'is-active':
+                  $route.path === '/reservation' ||
+                  $route.path === '/reservation-detail',
+              }"
               @click="navigate('/reservation')"
               class="sub-menu"
             >
@@ -168,21 +206,33 @@
           </div>
           <div v-if="systemMenu" class="sub-menu-list">
             <div
-              :class="{ 'is-active': $route.path === '/privilege' }"
+              :class="{
+                'is-active':
+                  $route.path === '/privilege' ||
+                  $route.path === '/privilege-create',
+              }"
               @click="navigate('/privilege')"
               class="sub-menu"
             >
               <p>Privilege</p>
             </div>
             <div
-              :class="{ 'is-active': $route.path === '/language' }"
+              :class="{
+                'is-active':
+                  ($route.path === '/language')
+                  | ($route.path === '/language-create'),
+              }"
               @click="navigate('/language')"
               class="sub-menu"
             >
               <p>Language</p>
             </div>
             <div
-              :class="{ 'is-active': $route.path === '/setting' }"
+              :class="{
+                'is-active':
+                  $route.path === '/setting' ||
+                  $route.path === '/setting-create',
+              }"
               @click="navigate('/setting')"
               class="sub-menu"
             >
@@ -211,6 +261,80 @@ export default {
       systemMenu: false,
       hotelMenu: false,
     };
+  },
+  watch: {
+    $route() {
+      if (this.isOverview) {
+        this.accountMenu = true;
+      }
+      if (this.isCms) {
+        this.cmsMenu = true;
+      }
+      if (this.isHotel) {
+        this.hotelMenu = true;
+      }
+      if (this.isSystem) {
+        this.systemMenu = true;
+      }
+    },
+  },
+  computed: {
+    isOverview() {
+      if (
+        this.$route.path === "/overview" ||
+        this.$route.path === "/account-create" ||
+        this.$route.path === "/account-edit"
+      ) {
+        return true;
+      }
+      return false;
+    },
+    isCms() {
+      if (
+        this.$route.path === "/page" ||
+        this.$route.path === "/page-create" ||
+        this.$route.path === "/item-main-category" ||
+        this.$route.path === "/item-main-category-create" ||
+        this.$route.path === "/item-sub-category" ||
+        this.$route.path === "/item-sub-category-create" ||
+        this.$route.path === "/theme-category" ||
+        this.$route.path === "/theme-category-create" ||
+        this.$route.path === "banner-slideshow" ||
+        this.$route.path === "/banner-slideshow-create" ||
+        this.$route.path === "/amenity" ||
+        this.$route.path === "/amenitycreate"
+      ) {
+        return true;
+      }
+      return false;
+    },
+    isHotel() {
+      if (
+        this.$route.path === "/item" ||
+        this.$route.path === "/item-create" ||
+        this.$route.path === "/coupon" ||
+        this.$route.path === "/coupon-create" ||
+        this.$route.path === "/comment" ||
+        this.$route.path === "/reservation" ||
+        this.$route.path === "/reservation-detail"
+      ) {
+        return true;
+      }
+      return false;
+    },
+    isSystem() {
+      if (
+        this.$route.path === "/privilege" ||
+        this.$route.path === "/privilege-create" ||
+        this.$route.path === "/language" ||
+        this.$route.path === "/language-create" ||
+        this.$route.path === "/setting" ||
+        this.$route.path === "/setting-create"
+      ) {
+        return true;
+      }
+      return false;
+    },
   },
   methods: {
     navigate(path) {
