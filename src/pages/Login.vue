@@ -10,6 +10,11 @@
           <el-input placeholder="Password" type="password"></el-input>
         </el-form-item>
         <el-form-item>
+          <p @click="$router.push('/forgot-password')" class="forgot-password">
+            Forgot password?
+          </p>
+        </el-form-item>
+        <el-form-item>
           <el-button>Sign in</el-button>
         </el-form-item>
       </el-form>
@@ -74,5 +79,18 @@
   color: #ffffff;
   width: 100%;
   padding: 1.3rem;
+}
+
+.login-card .el-form p.forgot-password {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: "liga" off;
+  color: #333333;
+  cursor: pointer;
+  text-align: end;
+  width: 100%;
 }
 </style>
